@@ -56,14 +56,16 @@ public void pickUp() {
     public void moveStation() { //this should be run in road method under umbrella move() method, run after moveCar()
 
     }
+public ArrayList<Passenger> getWaiting() {
+    return waiting;
+}
 
-pubic passenger droOff() { //returns the passenger to be dropped off
-    for(int i = 0; i < load.size(); i++) {
-        if((load.get(i).getdestination() == pos) || finished) {
-            
+public ArrayList<Car> getDepot() {
+    return depot;
+}
 
-        }
-    }
+public int getNumber() {
+    return number;
 }
 
 public void addCar() {
@@ -72,9 +74,8 @@ public void addCar() {
 
 
 
-public void carUnload() {
-    for(int i = 0; i < depot.size(); i++)
-}
+
+
 
 //have car in the station
 

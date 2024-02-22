@@ -24,22 +24,8 @@ public Car(int myStart, int myDest, int myDirection) {
 }
 
 //methods
-public void addPassenger(Passenger a) {  //loop through each passenger in waiting array in road object to see if it can be added to car
-    if((a.getDirection() == direction) && (load < 3)) {
-        passengers.add(a);
-    }
-    //need more code here for removing passenger a from station (in sation method)
-}
 
-public void canDropOff() {
-    for(int i = 0; i < passengers.size(); i++) {
-        if(location == passengers.get(i).getDestination()) {
-            passengers.remove(passengers.get(i));
-            i--;
-            return 
-    }
 
-}
 
 /** This method moves the car forward and checks if any of its passengers are at their destination
  * 
