@@ -49,6 +49,14 @@ public void pickUp() {
     }
 }
 
+public String toString() {
+    String lists = "";
+    for(int i = 0; i < waiting.size(); i++) {
+        lists += waiting.get(i).toString() + " ";
+    }
+    return super.toString() + "[statNo=" + number + ",passengers= " + lists + "]";
+}
+
     public void addPassenger(Passenger a) { //loop through each person in the same waiting array as car in road object
        //loop through every car in the depot and see if 
     }
@@ -68,9 +76,7 @@ public int getNumber() {
     return number;
 }
 
-public void addCar() {
-    
-}
+
 
 
 

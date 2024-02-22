@@ -27,7 +27,7 @@ public Car(int myStart, int myDest, int myDirection) {
 
 
 
-/** This method moves the car forward and checks if any of its passengers are at their destination
+/** This method moves the car forward 
  * 
  */
 public void moveCar() {

@@ -36,11 +36,33 @@ public class Road {
             }
         }
     }
-    
+
+//These following methods are to control the movement and exchange of objects
+    public void moveAllCars() {
+        for(int i = 0; i < totalCars.size(); i++) {
+            totalCars.get(i).moveCar();
+        }
+
+        //***need to make sure the cars are also transfered to the correct array lists
+        
+        for(int i = 0; i < totalStations.size(); i++) {
+            totalStations.get(i).dropOff();
+            totalStations.get(i).pickUp();
+        }
+    }
+
+
+    public void printInfo() {
+        for(int i = 0; i < totalStations.size(); i++) {
+            System.out.println(totalStations.get(i).toString());
+        }
+        for(int i = 0; i < totalCars.size(); i++) {
+            System.out.println(totalCars.get(i).toString());
+        }
+    }
     
 
 
-    //need initalize method that runs thorugh every car in road array list and adds it to its respective station (my mathcing stars and statNo)
 }
 //responsible for moving cars from one sttaion to another after each move method
 
@@ -48,4 +70,10 @@ public class Road {
  * 1. loop thorugh totalCars array list and move each car
  * 2. add and take away cars from a station's array list/ add  
  * 2. run checks at each station to dropp off and pick up passengers
+ */
+
+
+
+/**QUESTIONS
+ * what is the best way to move each car to a the next station's array list after the move method is called (and remove the car from the old depot)
  */

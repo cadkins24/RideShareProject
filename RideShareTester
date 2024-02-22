@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+    //Creating a road
+    Road r = new Road();
+
+    System.out.println("Establishing 3 stations...");
+    System.out.println("Generating non-random cars with locations and destination...");
+}
