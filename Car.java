@@ -35,10 +35,14 @@ public Car(int myStart, int myDest) {
  * 
  */
 public void moveCar() {
-    if(direction == 0) {
-        location -= 1;
-    } else {
-        location += 1;
+    if(location != dest) {
+        if(direction == 0) {
+            location -= 1;
+        } else {
+            location += 1;
+        }
+    }if(location == dest) {
+        finished = true;
     }
 }
 

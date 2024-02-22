@@ -18,11 +18,11 @@ public class Road {
         totalPassengers.add(a);
     }
 
-    public void addCars(Car a) {
+    public void addCar(Car a) {
         totalCars.add(a);
     }
 
-    public void addStations(Station a) {
+    public void addStation(Station a) {
         totalStations.add(a);
     }
     
