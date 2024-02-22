@@ -14,7 +14,18 @@ public class Road {
     }
 
     //methods
+    public void addPassenger(Passenger a) {
+        totalPassengers.add(a);
+    }
 
+    public void addCars(Car a) {
+        totalCars.add(a);
+    }
+
+    public void addStations(Station a) {
+        totalStations.add(a);
+    }
+    
     public void initalize() {
         //adds each passenger to its correct starting station based on its start variable
         for(int i = 0; i < totalPassengers.size(); i++) {

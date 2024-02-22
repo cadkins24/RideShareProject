@@ -14,12 +14,16 @@ private ArrayList<Passenger> passengers;
 
 
 //constructors
-public Car(int myStart, int myDest, int myDirection) {
+public Car(int myStart, int myDest) {
     start = myStart;
     dest = myDest;
     location = start;
     load = 0;
-    direction = myDirection;
+    if(start < dest) {
+        direction = 1;
+    } else if(start >= dest) {
+        direction = 0;
+    }
     passengers = new ArrayList<Passenger>();
 }
 
