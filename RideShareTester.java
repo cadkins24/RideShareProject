@@ -18,9 +18,19 @@ public class RideShareTester {
         r.addCar(car1);
         Car car2 = new Car(2, 1);
         r.addCar(car2);
+
+        System.out.println("Generating non-random passengers with locations and destinations...");
+        Passenger lilie = new Passenger(1, 3);
+        r.addPassenger(lilie);
+        r.initialize();
         r.printInfo();
+        System.out.println();
         r.moveAllCars();
         r.printInfo();
+        System.out.println();
+        r.moveAllCars();
+        r.printInfo();
+        System.out.println();
         r.moveAllCars();
         r.printInfo();
     }

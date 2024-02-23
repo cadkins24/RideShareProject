@@ -10,6 +10,8 @@ private int start;
 private int location;
 private int direction; //0 = left, 1 = right
 private ArrayList<Passenger> passengers;
+private static int idGen = 1;
+private int idNo;
 
 
 
@@ -25,6 +27,8 @@ public Car(int myStart, int myDest) {
         direction = 0;
     }
     passengers = new ArrayList<Passenger>();
+    idNo = idGen;
+    idGen++;
 }
 
 //methods
@@ -75,6 +79,10 @@ public boolean isFinished() {
 //need add funds method
 
 //-----------Getter Methods
+public int getidNo() {
+    return idNo;
+}
+
 public int getLocation() {
     return location;
 }

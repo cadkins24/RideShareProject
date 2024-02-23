@@ -26,7 +26,7 @@ public class Road {
         totalStations.add(a);
     }
     
-    public void initalize() {
+    public void initialize() {
         //adds each passenger to its correct starting station based on its start variable
         for(int i = 0; i < totalPassengers.size(); i++) {
             for(int j = 0; j < totalStations.size(); j++) {
@@ -54,7 +54,60 @@ public class Road {
             totalCars.get(i).moveCar();
         }
 
-        //***need to make sure the cars are also transfered to the correct array lists
+        //***need to make sure the cars are also transfered to the next stations array list
+        //removing each car from past station
+        for(int i = 0; i < totalCars.size(); i++) {
+            Car a = totalCars.get(i);
+            if(a.getFinished() != true) {
+                //remove car from current station and add to current statN - 1
+                if(a.getDirection() == 0) { //might have to check later that the car is not currently at the first or last staion?
+                    for(int j = 0; j < totalStations.size(); j++) {
+                        int prevStatNo = a.getLocation()+1;
+                        if(totalStations.get(j).getNumber() == prevStatNo) { //getting the station the car used to be at
+                            int n = totalCars.indexOf((a.getidNo()));
+                            if(n != -1) {
+                                totalStations.get(j).getDepot().remove(n);
+                                j--;
+                            }
+                            
+                        }
+                    }
+                    
+
+                }
+                //repeating for other direction
+                if(a.getDirection() == 1) {
+                    for(int j = 0; j < totalStations.size(); j++) {
+                        int prevStatNo2 = a.getLocation()-1;
+                        if(totalStations.get(j).getNumber() == prevStatNo2) {
+                            int m = totalCars.indexOf((a.getidNo()));
+                            if(m != -1) {
+                                totalStations.get(j).getDepot().remove(m);
+                                j--;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //adding each car to next Station array list
+
+
+
+
+
+        //trying above part again
+        //for(int i = 0; i < totalStations.size(); i++) {
+            //for(int j = 0; j < totalCars.size(); j++) {
+                //Car a = totalCars.get(j);
+                //if(a.getFinished() != true && a.getDirection() ==0) {
+                    //locate the station that the car is at
+
+                    //find what index the car is at in the stations depot array
+                //}
+            //}
+        //}
         
         for(int i = 0; i < totalStations.size(); i++) {
             totalStations.get(i).dropOff();
