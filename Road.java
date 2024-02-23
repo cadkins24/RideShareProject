@@ -72,8 +72,6 @@ public class Road {
                             
                         }
                     }
-                    
-
                 }
                 //repeating for other direction
                 if(a.getDirection() == 1) {
@@ -89,26 +87,7 @@ public class Road {
                     }
                 }
             }
-        }
-
-        //adding each car to next Station array list
-
-
-
-
-
-        //trying above part again
-        //for(int i = 0; i < totalStations.size(); i++) {
-            //for(int j = 0; j < totalCars.size(); j++) {
-                //Car a = totalCars.get(j);
-                //if(a.getFinished() != true && a.getDirection() ==0) {
-                    //locate the station that the car is at
-
-                    //find what index the car is at in the stations depot array
-                //}
-            //}
-        //}
-        
+        }        
         for(int i = 0; i < totalStations.size(); i++) {
             totalStations.get(i).dropOff();
             totalStations.get(i).pickUp();

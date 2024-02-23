@@ -24,11 +24,11 @@ public Station() {
 
 }
     //methods
-public void dropOff() {
+public void dropOff() {  //WHY does this one not remove passenger from car???
     for(int i = 0; i < depot.size(); i++) {
         for(int j = 0; j < depot.get(i).getPassengers().size(); j++) {
             Passenger a = depot.get(i).getPassengers().get(j);
-            if(a.getDestination() == number || depot.get(i).getFinished()) {
+            if(a.getDestination() == depot.get(i).getLocation() || depot.get(i).getFinished()) {
                 waiting.add(depot.get(i).removePassenger(j)); //this removes the passeger from car list, and adds it to station list
             j--;
             }

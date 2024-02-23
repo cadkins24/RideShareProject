@@ -21,7 +21,11 @@ public class RideShareTester {
 
         System.out.println("Generating non-random passengers with locations and destinations...");
         Passenger lilie = new Passenger(1, 3);
+        Passenger claire = new Passenger(2, 3);
+        Passenger bob = new Passenger(2, 1);
         r.addPassenger(lilie);
+        r.addPassenger(claire);
+        r.addPassenger(bob);
         r.initialize();
         r.printInfo();
         System.out.println();
