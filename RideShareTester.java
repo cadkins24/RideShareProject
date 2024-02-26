@@ -26,11 +26,12 @@ public class RideShareTester {
         r.addPassenger(lilie);
         r.addPassenger(claire);
         r.addPassenger(bob);
-        r.initialize();
         r.printInfo();
         System.out.println();
         r.moveAllCars();
         r.printInfo();
+        System.out.println(claire.getDestination());
+        System.out.println(car1.getDestination());
         System.out.println();
         r.moveAllCars();
         r.printInfo();

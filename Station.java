@@ -54,16 +54,13 @@ public String toString() {
     for(int i = 0; i < waiting.size(); i++) {
         lists += waiting.get(i).toString() + " ";
     }
-    return super.toString() + "[statNo=" + number + ",passengers= " + lists + "]";
+    String carLists = "";
+    for(int i = 0; i < depot.size(); i++) {
+        carLists += depot.get(i).toString() + " ";
+    }
+    return super.toString() + "[statNo=" + number + ",passengers= " + lists + "]" + "cars=" + carLists + "]";
 }
 
-    public void addPassenger(Passenger a) { //loop through each person in the same waiting array as car in road object
-       //loop through every car in the depot and see if 
-    }
-
-    public void moveStation() { //this should be run in road method under umbrella move() method, run after moveCar()
-
-    }
 public ArrayList<Passenger> getWaiting() {
     return waiting;
 }
