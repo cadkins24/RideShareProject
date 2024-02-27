@@ -28,15 +28,17 @@ public class RideShareTester {
         r.addPassenger(bob);
         r.printInfo();
         System.out.println();
-        r.moveAllCars();
-        r.printInfo();
-        System.out.println(claire.getDestination());
-        System.out.println(car1.getDestination());
-        System.out.println();
-        r.moveAllCars();
-        r.printInfo();
-        System.out.println();
-        r.moveAllCars();
-        r.printInfo();
+        
+        //loop that moves cars a certain number of times
+        for(int i = 0; i < 3; i++) {
+            r.moveAllCars();
+            r.printInfo();
+            System.out.println();
+        }
+
+        //calculate total revenue
+        System.out.println("Calculating total revenue generated...");
+        System.out.println("Passenger Miles/Miles Driven: " + r.calculateRevenue() + " / " + r.calculateMiles());
+        System.out.println("Average revenue: " + (r.calculateRevenue() / r.calculateMiles()));
     }
 }

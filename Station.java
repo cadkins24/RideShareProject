@@ -58,7 +58,7 @@ public String toString() {
     for(int i = 0; i < depot.size(); i++) {
         carLists += depot.get(i).toString() + " ";
     }
-    return super.toString() + "[statNo=" + number + ",passengers= " + lists + "]" + "cars=" + carLists + "]";
+    return super.toString() + "[statNo=" + number + ",passengers= [" + lists + "], cars= " + carLists + "]";
 }
 
 public ArrayList<Passenger> getWaiting() {

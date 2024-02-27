@@ -12,6 +12,8 @@ private int direction; //0 = left, 1 = right
 private ArrayList<Passenger> passengers;
 private static int idGen = 1;
 private int idNo;
+private int revenue;
+private int milesDriven;
 
 
 
@@ -29,6 +31,8 @@ public Car(int myStart, int myDest) {
     passengers = new ArrayList<Passenger>();
     idNo = idGen;
     idGen++;
+    revenue = 0;
+    milesDriven = 0;
 }
 
 //methods
@@ -45,6 +49,8 @@ public void moveCar() {
         } else {
             location += 1;
         }
+        revenue += passengers.size(); //adding $1 per each passenger each time the car moves
+        milesDriven += 1; //keeping track of the miles each car has driven
     }if(location == dest) {
         finished = true;
     }
@@ -55,7 +61,7 @@ public String toString() {
     for(int i = 0; i < passengers.size(); i++) {
         lists += passengers.get(i).toString() + " ";
     }
-    return super.toString() + "[loc=" + location + ", dest=" + dest + ",passengers= " + lists;
+    return super.toString() + "[loc=" + location + ", dest=" + dest + ",passengers= " + "[" + lists + "]]";
 
 }
 
@@ -109,6 +115,14 @@ public ArrayList<Passenger> getPassengers() {
 
 public boolean getFinished() {
     return finished;
+}
+
+public int getRevenue() {
+    return revenue;
+}
+
+public int getMilesDriven() {
+    return milesDriven;
 }
 
 
