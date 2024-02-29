@@ -12,7 +12,7 @@ public class RideShareTester {
             r.addStation(station);
         }
 
-        //creating cars with random stars and ends
+        //creating cars with random starts and ends
         System.out.println("Generating random cars with locations and destinations...");
         for(int i = 0; i < 10; i++) {
             int random1 = (int)(Math.random() * 32);

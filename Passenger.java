@@ -22,9 +22,7 @@ public Passenger(int myStart, int myDest) {
     }
 }
 
-//methods
-
-
+//Getter methods:
 public int getStart() {
     return start;
 }

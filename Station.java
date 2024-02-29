@@ -5,17 +5,9 @@ public class Station {
     private static int idGen = 1;
     private int number;
     private ArrayList<Passenger> waiting;
-    private ArrayList<Car> depot; //need to edit method so that each move(), the car leaves the past depots station and is added to the next
+    private ArrayList<Car> depot; 
     
-
-/**
- * add passenger fomr waiting to car (by finding the passenger, and runing car.addPassenger)
- * road runs the move method which includes: runs thorugh every car at the station, and checks their list of passengers, and adds any one of those to the waiting array
- * 
- * @param myNumber
- */
-
-    //constructors
+    //constructor
 public Station() {
     number = idGen;
     idGen++;
@@ -24,12 +16,14 @@ public Station() {
 
 }
     //METHODS
+    
     /**
      * This method checks to see if any of the passengers aboard each car are at their 
-     * destination, and if so, drops them off at the current station. It also drops off
-     * everyone if the car is at its destination.  
+     * destination, and if so, drops them off by adding them to the current stations array 
+     * of waiting passengers. If the car has reached it's destination (isFinished == true), 
+     * then it drops off all current passengers. 
      */
-    public void dropOff() {  //WHY does this one not remove passenger from car???
+    public void dropOff() {  
     for(int i = 0; i < depot.size(); i++) {
         for(int j = 0; j < depot.get(i).getPassengers().size(); j++) {
             Passenger a = depot.get(i).getPassengers().get(j);
@@ -41,7 +35,11 @@ public Station() {
         }
     }
 }
-
+/**
+ * Checks each passenger waiting at a station to see if the car should pick it up. If the car 
+ * and passenger are going the same direction, and the car has room, the passenger is removed 
+ * from the station's waiting array list and added to the car's array list.
+ */
 public void pickUp() {
     for(int i = 0; i < waiting.size(); i++) {
         for(int j = 0; j < depot.size(); j++) {
@@ -67,6 +65,8 @@ public String toString() {
     return super.toString() + "[sntNo=" + number + "\n" + "     passengers= [" + lists + "] \n" + "     cars= " + carLists + "]";
 }
 
+
+//Getter methods:
 public ArrayList<Passenger> getWaiting() {
     return waiting;
 }

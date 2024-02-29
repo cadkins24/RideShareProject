@@ -17,13 +17,13 @@ private int milesDriven;
 
 
 
-//constructors
+//constructor
 public Car(int myStart, int myDest) {
     start = myStart;
     dest = myDest;
     location = start;
     load = 0;
-    if(start < dest) {
+    if(start < dest) { //establishes which direction the car is moving
         direction = 1;
     } else if(start > dest) {
         direction = 0;
@@ -35,12 +35,10 @@ public Car(int myStart, int myDest) {
     milesDriven = 0;
 }
 
-//methods
+//METHODS
 
-
-
-/** This method moves the car forward 
- * 
+/**  
+ * Moves car forward one mile if the car hasn't reached its destination yet.
  */
 public void moveCar() {
     if(location != dest) {
@@ -56,23 +54,26 @@ public void moveCar() {
     }
 }
 
-public String toString() {
-    String lists = "";
-    for(int i = 0; i < passengers.size(); i++) {
-        lists += passengers.get(i).toString();
-    }
-    return super.toString() + "[loc=" + location + ", dest=" + dest + ", passengers: " + "(" + lists + ")";
-
-}
-
+/**
+ * Removes passenger at specified index from Car's array list of current passengers
+ * @param index
+ * @return the removed passenger
+ */
 public Passenger removePassenger(int index) {
     return passengers.remove(index);
 }
 
+/**
+ * Updates car's current load by 1
+ */
 public void increaseLoad() {
     load += 1;
 }
 
+/**
+ * Checks to see if car is finished
+ * @return true if the car is at it's destination
+ */
 public boolean isFinished() {
     if(location == dest) {
         finished = true;
@@ -82,9 +83,7 @@ public boolean isFinished() {
     return finished;
 }
 
-//need add funds method
-
-//-----------Getter Methods
+//Getter methods
 public int getidNo() {
     return idNo;
 }
@@ -125,5 +124,12 @@ public int getMilesDriven() {
     return milesDriven;
 }
 
+public String toString() {
+    String lists = "";
+    for(int i = 0; i < passengers.size(); i++) {
+        lists += passengers.get(i).toString();
+    }
+    return super.toString() + "[loc=" + location + ", dest=" + dest + ", passengers: " + "(" + lists + ")";
 
+}
 }
