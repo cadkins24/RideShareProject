@@ -14,7 +14,7 @@ public class RideShareTester {
 
         //creating cars with random stars and ends
         System.out.println("Generating random cars with locations and destinations...");
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 10; i++) {
             int random1 = (int)(Math.random() * 32);
             int random2 = (int)(Math.random() * 32);
             Car car = new Car(random1, random2);
@@ -23,7 +23,7 @@ public class RideShareTester {
         
         //creating passengers with random starts and ends
         System.out.println("Generating random passengers with locations and destinations...");
-        for(int i = 0; i < 50; i++) {
+        for(int i = 0; i < 40; i++) {
             int random1 = (int)(Math.random() * 32);
             int random2 = (int)(Math.random() * 32);
             Passenger pass = new Passenger(random1, random2);
