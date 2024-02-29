@@ -5,34 +5,37 @@ public class RideShareTester {
         //Creating a road
         Road r = new Road();
         
-        System.out.println("Establishing 3 stations...");
-        Station stat1 = new Station();
-        r.addStation(stat1);
-        Station stat2 = new Station();
-        r.addStation(stat2);
-        Station stat3 = new Station();
-        r.addStation(stat3);
-    
-        System.out.println("Generating non-random cars with locations and destination...");
-        Car car1 = new Car(1, 3);
-        r.addCar(car1);
-        Car car2 = new Car(2, 1);
-        r.addCar(car2);
+        //creating 32 stations
+        System.out.println("Establishing 32 stations...");
+        for(int i = 0; i < 32; i++) {
+            Station station = new Station();
+            r.addStation(station);
+        }
 
-        System.out.println("Generating non-random passengers with locations and destinations...");
-        Passenger lilie = new Passenger(1, 3);
-        Passenger claire = new Passenger(2, 3);
-        Passenger bob = new Passenger(2, 1);
-
-        r.addPassenger(lilie);
-        r.addPassenger(claire);
-        r.addPassenger(bob);
+        //creating cars with random stars and ends
+        System.out.println("Generating random cars with locations and destinations...");
+        for(int i = 0; i < 20; i++) {
+            int random1 = (int)(Math.random() * 32);
+            int random2 = (int)(Math.random() * 32);
+            Car car = new Car(random1, random2);
+            r.addCar(car);
+        }
+        
+        //creating passengers with random starts and ends
+        System.out.println("Generating random passengers with locations and destinations...");
+        for(int i = 0; i < 50; i++) {
+            int random1 = (int)(Math.random() * 32);
+            int random2 = (int)(Math.random() * 32);
+            Passenger pass = new Passenger(random1, random2);
+            r.addPassenger(pass);
+        }
         r.printInfo();
         System.out.println();
         System.out.println();
         
-        //loop that moves cars a certain number of times
-        for(int i = 0; i < 3; i++) {
+        //loop that moves cars 100 times
+        for(int i = 1; i <= 100; i++) {
+            System.out.println("Number of total moves: " + i);
             r.moveAllCars();
             r.printInfo();
             System.out.println();
@@ -40,11 +43,10 @@ public class RideShareTester {
         }
 
         //calculate total revenue
-        System.out.println("Calculating total revenue generated...");
-        System.out.println("Passenger Miles/Miles Driven: " + r.calculateRevenue() + " / " + r.calculateMiles() + " = " + ((double) r.calculateRevenue() / r.calculateMiles()));
+        System.out.println("Calculating average revenue generated...");
+        System.out.println("Money made/Miles Driven: " + r.calculateRevenue() + " / " + r.calculateMiles() + " = " + ((double) r.calculateRevenue() / r.calculateMiles()));
 
     }
 
-    //do i need to write out method headers/ explantions for each one?
-    //how to fix index out of bounds error on moveAllCars()
+    
 }

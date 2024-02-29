@@ -47,7 +47,7 @@ public class Road {
             Station s = totalStations.get(m);
             for(int n = 0; n < s.getDepot().size(); n++) {
                 Car c = s.getDepot().get(n);
-                if(c.getFinished() == false && c.getDirection() == 0) { //removing cars going left
+                if(c.getFinished() == false && c.getDirection() == 0 && s.getNumber()-1 != 0) { //removing cars going left
                     totalStations.get(m-1).getDepot().add(c); //adding car to next station
                     s.getDepot().remove(c); //remove car from the station its currently at
                     n--;
@@ -59,7 +59,7 @@ public class Road {
             Station s = totalStations.get(m);    
             for(int p = 0; p < s.getDepot().size(); p++) {
                 Car c = s.getDepot().get(p);
-                if(c.getFinished() == false && c.getDirection() == 1) { //repeating for cars going right //do another loop in the other direction -- do m loop twice and adjust indexes
+                if(c.getFinished() == false && c.getDirection() == 1 && s.getNumber() != 32) { //repeating for cars going right //do another loop in the other direction -- do m loop twice and adjust indexes
                     totalStations.get(m+1).getDepot().add(c); //adding car to next station
                     s.getDepot().remove(c); //remove car from the station its currently at
                     p--;
