@@ -25,7 +25,7 @@ public Car(int myStart, int myDest) {
     load = 0;
     if(start < dest) {
         direction = 1;
-    } else if(start >= dest) {
+    } else if(start > dest) {
         direction = 0;
     }
     passengers = new ArrayList<Passenger>();
@@ -59,9 +59,9 @@ public void moveCar() {
 public String toString() {
     String lists = "";
     for(int i = 0; i < passengers.size(); i++) {
-        lists += passengers.get(i).toString() + " ";
+        lists += passengers.get(i).toString();
     }
-    return super.toString() + "[loc=" + location + ", dest=" + dest + ",passengers= " + "[" + lists + "]]";
+    return super.toString() + "[loc=" + location + ", dest=" + dest + ", passengers: " + "(" + lists + ")";
 
 }
 

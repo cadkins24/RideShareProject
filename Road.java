@@ -34,12 +34,13 @@ public class Road {
 
 //This following method is to control the movement and exchange of objects
     public void moveAllCars() {
-        //First moving all cars once
-        for(int i = 0; i < totalStations.size(); i++) {
-            for(int k = 0; k < totalStations.get(i).getDepot().size(); k++) {
-                totalStations.get(i).getDepot().get(k).moveCar();
-            }
-        }
+         //dropping off and picking up passengers
+                for(int p = 0; p < totalStations.size(); p++) { 
+                    totalStations.get(p).dropOff();
+                    totalStations.get(p).pickUp();
+                }
+        
+        
 
         //removing each car from past station
         for(int m = 0; m < totalStations.size(); m++) {
@@ -51,20 +52,33 @@ public class Road {
                     s.getDepot().remove(c); //remove car from the station its currently at
                     n--;
                 }
-                if(c.getFinished() == false && c.getDirection() == 1) { //repeating for cars going right
+                
+            }
+        }
+        for(int m = totalStations.size() - 1; m >= 0; m--) {
+            Station s = totalStations.get(m);    
+            for(int p = 0; p < s.getDepot().size(); p++) {
+                Car c = s.getDepot().get(p);
+                if(c.getFinished() == false && c.getDirection() == 1) { //repeating for cars going right //do another loop in the other direction -- do m loop twice and adjust indexes
                     totalStations.get(m+1).getDepot().add(c); //adding car to next station
                     s.getDepot().remove(c); //remove car from the station its currently at
-                    n--;
+                    p--;
                 }
             }
         }
-        for(int p = 0; p < totalStations.size(); p++) { //dropping off and picking up passengers
-            totalStations.get(p).dropOff();
-            totalStations.get(p).pickUp();
-        }
+        //First moving all cars once
+                for(int i = 0; i < totalStations.size(); i++) {
+                    for(int k = 0; k < totalStations.get(i).getDepot().size(); k++) {
+                        totalStations.get(i).getDepot().get(k).moveCar();
+                    }
+                }
+
+       
     }
 
 
+    
+    
     public void printInfo() {
         for(int b = 0; b < totalStations.size(); b++) {
             System.out.println(totalStations.get(b).toString());
@@ -98,16 +112,3 @@ public class Road {
 
 
 }
-//responsible for moving cars from one sttaion to another after each move method
-
-/**
- * 1. loop thorugh totalCars array list and move each car
- * 2. add and take away cars from a station's array list/ add  
- * 2. run checks at each station to dropp off and pick up passengers
- */
-
-
-
-/**QUESTIONS
- * what is the best way to move each car to a the next station's array list after the move method is called (and remove the car from the old depot)
- */

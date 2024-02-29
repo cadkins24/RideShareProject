@@ -23,8 +23,13 @@ public Station() {
     depot = new ArrayList<Car>();
 
 }
-    //methods
-public void dropOff() {  //WHY does this one not remove passenger from car???
+    //METHODS
+    /**
+     * This method checks to see if any of the passengers aboard each car are at their 
+     * destination, and if so, drops them off at the current station. It also drops off
+     * everyone if the car is at its destination.  
+     */
+    public void dropOff() {  //WHY does this one not remove passenger from car???
     for(int i = 0; i < depot.size(); i++) {
         for(int j = 0; j < depot.get(i).getPassengers().size(); j++) {
             Passenger a = depot.get(i).getPassengers().get(j);
@@ -44,6 +49,7 @@ public void pickUp() {
                 depot.get(j).getPassengers().add(waiting.remove(i));//passenger is removed from waiting array list and added to cars array list. car load +1
                 i--;
                 depot.get(j).increaseLoad();
+                break;
             }
         }
     }
@@ -58,7 +64,7 @@ public String toString() {
     for(int i = 0; i < depot.size(); i++) {
         carLists += depot.get(i).toString() + " ";
     }
-    return super.toString() + "[statNo=" + number + ",passengers= [" + lists + "], cars= " + carLists + "]";
+    return super.toString() + "[sntNo=" + number + "\n" + "     passengers= [" + lists + "] \n" + "     cars= " + carLists + "]";
 }
 
 public ArrayList<Passenger> getWaiting() {
@@ -72,32 +78,4 @@ public ArrayList<Car> getDepot() {
 public int getNumber() {
     return number;
 }
-
-
-
-
-
-
-
-
-//have car in the station
-
-
 }
-
-
-
-/**
- * car arrives at station --> check to see if any of the passengers in the car array list are at their desitnation
- *          if so: remove those passengers at the staion level
- *          if not: and car is full --> keep going
- * if car has space:
- * check if passengers in station array list can go in car
- * remove those passengers fomr station array list
- * 
- * 
- * each move: check if finished = true
- * 
- */
-
-

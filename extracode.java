@@ -75,3 +75,11 @@ public class extracode {
                 }
             }
         }        
+
+
+
+        //dropping off and picking up passengers
+                for(int p = 0; p < totalStations.size(); p++) { 
+                    totalStations.get(p).dropOff();
+                    totalStations.get(p).pickUp();
+                }

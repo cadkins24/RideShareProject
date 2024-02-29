@@ -23,10 +23,12 @@ public class RideShareTester {
         Passenger lilie = new Passenger(1, 3);
         Passenger claire = new Passenger(2, 3);
         Passenger bob = new Passenger(2, 1);
+
         r.addPassenger(lilie);
         r.addPassenger(claire);
         r.addPassenger(bob);
         r.printInfo();
+        System.out.println();
         System.out.println();
         
         //loop that moves cars a certain number of times
@@ -34,11 +36,15 @@ public class RideShareTester {
             r.moveAllCars();
             r.printInfo();
             System.out.println();
+            System.out.println();
         }
 
         //calculate total revenue
         System.out.println("Calculating total revenue generated...");
-        System.out.println("Passenger Miles/Miles Driven: " + r.calculateRevenue() + " / " + r.calculateMiles());
-        System.out.println("Average revenue: " + (r.calculateRevenue() / r.calculateMiles()));
+        System.out.println("Passenger Miles/Miles Driven: " + r.calculateRevenue() + " / " + r.calculateMiles() + " = " + ((double) r.calculateRevenue() / r.calculateMiles()));
+
     }
+
+    //do i need to write out method headers/ explantions for each one?
+    //how to fix index out of bounds error on moveAllCars()
 }
